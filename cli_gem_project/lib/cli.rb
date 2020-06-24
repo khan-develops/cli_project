@@ -16,7 +16,6 @@ class CLI
 
   def call
     puts "Welcome to scholarship finder!"
-    
     input = ""
     while input != "Exit"
       puts "Please enter your major"
@@ -26,6 +25,7 @@ class CLI
   end
 
   def list_title(input)
+    
     i = 0
     while !Title.all.find {|e| e.major == input}
       puts "Please enter valid entry!"
@@ -35,15 +35,15 @@ class CLI
         break
       end
     end
-    list_title_list = Title.all.find_all {|e| e.major == input}
-    binding.pry
-    sort_list = list_title_list.sort {|a, b| b.amount <=> a.amount}
+    title_list = Title.all.find_all {|e| e.major == input}
+    sort_list = title_list.sort {|a, b| b.amount <=> a.amount}
     sort_list.each do |e| 
       i += 1
       if e.amount == 0
         e.amount = "Varies"
       end
       puts "#{i}. #{e.title} - #{e.amount}"
+      e.amount = 0
     end
 
     puts "Please enter number between 1 and #{sort_list.length}"
@@ -58,6 +58,6 @@ class CLI
     end
     p = sort_list[input-1].title_url
     Scraper.detail(p)
+    #binding.pry
   end
-
 end
