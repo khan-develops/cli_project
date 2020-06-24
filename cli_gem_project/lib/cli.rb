@@ -18,27 +18,26 @@ class CLI
     puts "Welcome to scholarship finder!"
     input = ""
     while input != "Exit"
-      puts "Please enter your major"
+      puts "Please enter your major to continue or type exit to exit"
       input = gets.strip.capitalize
+      if input == "Exit"
+        break
+      end
       list_title(input)
     end
+    puts "Thank You for Using The App!"
   end
 
   def list_title(input)
-    
     i = 0
     while !Title.all.find {|e| e.major == input}
       puts "Please enter valid entry!"
       input = gets.strip.capitalize
-      if input == "Exit"
-        puts "Thank You!"
-        break
-      end
     end
     title_list = Title.all.find_all {|e| e.major == input}
     sort_list = title_list.sort {|a, b| b.amount <=> a.amount}
     sort_list.each do |e| 
-      i += 1
+    i += 1
       if e.amount == 0
         e.amount = "Varies"
       end
@@ -51,10 +50,6 @@ class CLI
     while !(1..sort_list.length).include?(input)
       puts "Please enter a valid entry!"
       input = gets.to_i
-      if input == "Exit"
-        puts "Thank You!"
-        break
-      end
     end
     p = sort_list[input-1].title_url
     Scraper.detail(p)
