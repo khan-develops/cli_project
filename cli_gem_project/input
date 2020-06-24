@@ -1,0 +1,16 @@
+
+[1mFrom:[0m /mnt/c/Users/Batsaikhan/dev/flatiron/labs/cli_project/cli_gem_project/lib/cli.rb:23 CLI#call:
+
+    [1;34m15[0m: [32mdef[0m [1;34mcall[0m
+    [1;34m16[0m:   puts [31m[1;31m"[0m[31mWelcome to scholarship finder![1;31m"[0m[31m[0m
+    [1;34m17[0m:   
+    [1;34m18[0m:   input = [31m[1;31m"[0m[31m[1;31m"[0m[31m[0m
+    [1;34m19[0m:   [32mwhile[0m input != [31m[1;31m"[0m[31mExit[1;31m"[0m[31m[0m
+    [1;34m20[0m:     puts [31m[1;31m"[0m[31mPlease enter your major[1;31m"[0m[31m[0m
+    [1;34m21[0m:     input = gets.strip.capitalize
+    [1;34m22[0m:     [1;34m#list_title(input)[0m
+ => [1;34m23[0m:     binding.pry
+    [1;34m24[0m:     display_detail(input)
+    [1;34m25[0m:   [32mend[0m
+    [1;34m26[0m: [32mend[0m
+

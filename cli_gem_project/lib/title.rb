@@ -1,12 +1,13 @@
 class Title
 
-  attr_accessor :title, :amount, :scholarship_url
+  attr_accessor :major, :title, :amount, :title_url
 
   @@all = []
 
   def initialize(title)
+    @major = title[:major]
     @title = title[:title]
-    @title_url = title[:scholarship_url]
+    @title_url = title[:title_url]
     @amount = title[:amount]
   end
 
