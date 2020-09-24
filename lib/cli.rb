@@ -35,7 +35,7 @@ class CLI
       input = gets.strip.capitalize
     end
     title_list = Title.all.find_all {|e| e.major == input}
-    sort_list = title_list.sort {|a, b| b.amount <=> a.amount}
+    sort_list = title_list.sort_by {|title| -title.amount}
     sort_list.each do |e| 
     i += 1
       if e.amount == 0
